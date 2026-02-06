@@ -1,60 +1,155 @@
-# 📈 GitPulse
+# 📊 GitPulse
 
-**GitHub Wrapped, but live and always up-to-date.**
+**GitHub analytics that actually matter—your coding year wrapped, live**
 
-GitPulse gives you beautiful insights into your GitHub activity with contribution heatmaps, streak tracking, and productivity metrics. Perfect for developers who want to showcase their work.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tahseen137/gitpulse)
+[![Live Demo](https://img.shields.io/badge/demo-live-success)](https://gitpulse-eight.vercel.app)
 
-![Screenshot](screenshot.png)
+---
 
-## Features
+## 📖 About
 
-- 🗓️ **Contribution Heatmap** — Visualize your entire year at a glance
-- 🔥 **Streak Counter** — Track your current coding streak
-- 📊 **Productivity Score** — Personalized score based on activity
-- 🌐 **Language Analytics** — See which languages you use most
-- ⚡ **Real-Time Activity** — Latest commits, PRs, and issues feed
-- ⭐ **Repository Stats** — Track stars, forks, and active repos
+**GitPulse** is a **GitHub analytics dashboard** that gives you beautiful insights into your coding activity. Like GitHub Wrapped, but live and always up-to-date. Track commits, streaks, languages, and productivity patterns across all your repos.
 
-## Tech Stack
+Perfect for:
+- 👨‍💻 Developers tracking their progress
+- 📊 Freelancers showcasing activity
+- 🏆 Teams monitoring contributions
+- 🎯 Job seekers demonstrating consistency
 
-- **Framework:** Next.js 14
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Deployment:** Vercel
+**Live Demo:** [gitpulse-eight.vercel.app](https://gitpulse-eight.vercel.app)
 
-## Getting Started
+---
+
+## ✨ Features
+
+### Analytics
+- 📈 **Commit Trends** — Daily, weekly, monthly patterns
+- 🔥 **Contribution Streaks** — Track your longest coding streaks
+- 💻 **Language Breakdown** — See what you code in most
+- ⏰ **Productivity Hours** — When do you code best?
+- ⭐ **Repository Stats** — Stars, forks, and activity
+
+### Visualizations
+- 📊 **Activity Heatmap** — GitHub-style contribution graph
+- 📉 **Trend Charts** — Beautiful time-series graphs
+- 🎨 **Language Pie Charts** — Visual language distribution
+- 📅 **Calendar View** — Month-by-month breakdown
+
+### Sharing
+- 🔗 **Public Profiles** — Share your stats via URL
+- 📱 **Shareable Cards** — Generate images for social media
+- 🎯 **Embed Widgets** — Add to your portfolio or README
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Framework** | Next.js |
+| **Language** | TypeScript |
+| **Icons** | Lucide React |
+| **API** | GitHub REST API |
+| **Styling** | Tailwind CSS |
+| **Deployment** | Vercel |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- GitHub account
+- (Optional) GitHub Personal Access Token for higher rate limits
+
+### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/gitpulse.git
+git clone https://github.com/tahseen137/gitpulse.git
 cd gitpulse
 
 # Install dependencies
 npm install
 
-# Run development server
+# Start development server
 npm run dev
-
-# Build for production
-npm run build
 ```
 
-## Usage
+### Environment Variables (Optional)
 
-Just enter any GitHub username to view their dashboard:
+```env
+# For higher GitHub API rate limits
+GITHUB_TOKEN=ghp_your_personal_access_token
+```
+
+---
+
+## 📦 Deployment
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tahseen137/gitpulse)
+
+---
+
+## 🎯 Usage
+
+### View Your Stats
+
+1. Visit [gitpulse-eight.vercel.app](https://gitpulse-eight.vercel.app)
+2. Enter your GitHub username
+3. Explore your analytics dashboard
+
+### Share Your Profile
 
 ```
 https://gitpulse-eight.vercel.app/username
 ```
 
-## Deployment
+### Embed in README
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/gitpulse)
+```markdown
+![GitPulse Stats](https://gitpulse-eight.vercel.app/api/card/username)
+```
 
-## Live Demo
+---
 
-🔗 [gitpulse-eight.vercel.app](https://gitpulse-eight.vercel.app)
+## 📊 Metrics Tracked
 
-## License
+- **Total Commits** — Lifetime contribution count
+- **Current Streak** — Consecutive days with commits
+- **Best Streak** — Longest streak ever
+- **Top Languages** — Most-used programming languages
+- **Active Hours** — When you commit most
+- **Repository Count** — Public repos created
+- **Stars Received** — Total stars across all repos
+- **Contribution Graph** — GitHub-style heatmap
 
-MIT
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📝 License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- Built with [Next.js](https://nextjs.org/)
+- Data from [GitHub API](https://docs.github.com/en/rest)
+- Icons by [Lucide](https://lucide.dev/)
+
+**Track your code, celebrate your progress 📊💚**
