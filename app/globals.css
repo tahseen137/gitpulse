@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@layer components {
+  .glass-card {
+    backdrop-filter: blur(12px);
+    background-color: rgba(31, 41, 55, 0.3);
+    border: 1px solid rgba(55, 65, 81, 0.5);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
