@@ -1,141 +1,60 @@
-# 🚀 GitPulse
+# 📈 GitPulse
 
 **GitHub Wrapped, but live and always up-to-date.**
 
-GitPulse is a beautiful developer activity dashboard that provides real-time insights into GitHub activity, contribution streaks, and productivity metrics.
+GitPulse gives you beautiful insights into your GitHub activity with contribution heatmaps, streak tracking, and productivity metrics. Perfect for developers who want to showcase their work.
 
-## 🌐 Live Demo
+![Screenshot](screenshot.png)
 
-**🎉 Live at:** [https://gitpulse-eight.vercel.app](https://gitpulse-eight.vercel.app)
+## Features
 
-**GitHub Repo:** [https://github.com/tahseen137/gitpulse](https://github.com/tahseen137/gitpulse)
+- 🗓️ **Contribution Heatmap** — Visualize your entire year at a glance
+- 🔥 **Streak Counter** — Track your current coding streak
+- 📊 **Productivity Score** — Personalized score based on activity
+- 🌐 **Language Analytics** — See which languages you use most
+- ⚡ **Real-Time Activity** — Latest commits, PRs, and issues feed
+- ⭐ **Repository Stats** — Track stars, forks, and active repos
 
-Try it with any GitHub username:
-- [octocat](https://gitpulse-eight.vercel.app/octocat)
-- [torvalds](https://gitpulse-eight.vercel.app/torvalds)
-- [tahseen137](https://gitpulse-eight.vercel.app/tahseen137)
+## Tech Stack
 
-## ✨ Features
-
-- **📊 Contribution Heatmap** - Visualize your entire year of contributions at a glance
-- **🔥 Streak Counter** - Track your current coding streak and stay motivated
-- **📈 Productivity Score** - Personalized score based on commit frequency and PR activity
-- **🎨 Language Analytics** - See which programming languages you use most
-- **⚡ Real-Time Activity Feed** - View your latest commits, PRs, and issues
-- **⭐ Repository Stats** - Track stars, forks, and find your most active repositories
-
-## 🛠️ Tech Stack
-
-- **Framework:** Next.js 14 (App Router)
-- **Styling:** Tailwind CSS with glass morphism effects
-- **Charts:** Recharts
-- **Icons:** Lucide React
-- **API:** GitHub REST API (no authentication required)
+- **Framework:** Next.js 14
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
 - **Deployment:** Vercel
 
-## 🚀 Getting Started
+## Getting Started
 
-### Prerequisites
-
-- Node.js 18+ installed
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
 ```bash
-git clone https://github.com/tahseen137/gitpulse.git
+# Clone the repository
+git clone https://github.com/yourusername/gitpulse.git
 cd gitpulse
-```
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-3. Run the development server:
-```bash
+# Run development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+## Usage
 
-## 📁 Project Structure
+Just enter any GitHub username to view their dashboard:
 
 ```
-gitpulse/
-├── app/
-│   ├── [username]/          # Dynamic dashboard page
-│   ├── api/github/          # GitHub API route
-│   ├── pricing/             # Pricing page
-│   ├── page.tsx             # Landing page
-│   ├── layout.tsx           # Root layout
-│   └── globals.css          # Global styles
-├── components/
-│   ├── ActivityFeed.tsx     # Recent activity component
-│   ├── ContributionHeatmap.tsx  # Heatmap visualization
-│   ├── LanguageChart.tsx    # Language pie chart
-│   └── StatCard.tsx         # Statistics card component
-└── public/                  # Static assets
+https://gitpulse-eight.vercel.app/username
 ```
 
-## 🎨 Design Features
+## Deployment
 
-- **Dark Mode First** - Optimized for developer eyes
-- **Glass Morphism** - Modern, translucent card designs
-- **Green Accents** - GitHub-inspired color scheme
-- **Animated Components** - Smooth transitions and hover effects
-- **Responsive Layout** - Works on all screen sizes
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/gitpulse)
 
-## 📊 API Routes
+## Live Demo
 
-### GET `/api/github/[username]`
+🔗 [gitpulse-eight.vercel.app](https://gitpulse-eight.vercel.app)
 
-Fetches comprehensive GitHub data for a user:
-- User profile information
-- Repository statistics
-- Contribution data (last 365 days)
-- Top programming languages
-- Recent activity feed
-- Current streak calculation
-- Productivity score
+## License
 
-## 🎯 Productivity Score Algorithm
-
-The productivity score (0-100) is calculated based on:
-- Recent events (last 30 days) × 2
-- Total repositories × 0.5
-- Recent contributions × 1.5
-
-## 🚢 Deployment
-
-This project is deployed on Vercel with automatic deployments from the `main` branch.
-
-To deploy your own instance:
-
-```bash
-npx vercel --prod
-```
-
-## 📝 License
-
-MIT License - feel free to use this project for your own purposes!
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-- Report bugs
-- Suggest new features
-- Submit pull requests
-
-## 🙏 Acknowledgments
-
-- Built with [Next.js](https://nextjs.org/)
-- Data from [GitHub API](https://docs.github.com/en/rest)
-- Deployed on [Vercel](https://vercel.com/)
-
----
-
-**Built with ❤️ for developers who love tracking their progress**
-
-Made during a hackathon sprint 🚀
+MIT
