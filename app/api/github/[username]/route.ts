@@ -17,29 +17,63 @@ interface ContributionDay {
   count: number;
 }
 
+// Cache responses for 5 minutes to reduce API calls
+export const revalidate = 300;
+
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ username: string }> }
 ) {
   const { username } = await params;
 
+  // Validate GitHub username format (max 39 chars, alphanumeric + hyphens)
+  const usernameRegex = /^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$/;
+  if (!usernameRegex.test(username)) {
+    return NextResponse.json(
+      { error: 'Invalid GitHub username format' },
+      { status: 400 }
+    );
+  }
+
+  // GitHub API headers (with optional authentication)
+  const headers: HeadersInit = {
+    'Accept': 'application/vnd.github.v3+json',
+    'User-Agent': 'GitPulse-App',
+  };
+
+  // Add authentication if GITHUB_TOKEN is available (increases rate limit from 60 to 5000/hour)
+  if (process.env.GITHUB_TOKEN) {
+    headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+  }
+
   try {
     // Fetch user data
-    const userRes = await fetch(`https://api.github.com/users/${username}`);
+    const userRes = await fetch(`https://api.github.com/users/${username}`, { headers });
     if (!userRes.ok) {
-      return NextResponse.json({ error: 'User not found' }, { status: 404 });
+      if (userRes.status === 404) {
+        return NextResponse.json({ error: 'User not found' }, { status: 404 });
+      }
+      if (userRes.status === 403) {
+        return NextResponse.json(
+          { error: 'GitHub API rate limit exceeded. Please try again later.' },
+          { status: 429 }
+        );
+      }
+      return NextResponse.json({ error: 'Failed to fetch user data' }, { status: userRes.status });
     }
     const user = await userRes.json();
 
     // Fetch repos
     const reposRes = await fetch(
-      `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`
+      `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
+      { headers }
     );
     const repos = await reposRes.json();
 
     // Fetch events (for recent activity)
     const eventsRes = await fetch(
-      `https://api.github.com/users/${username}/events/public?per_page=100`
+      `https://api.github.com/users/${username}/events/public?per_page=100`,
+      { headers }
     );
     const events: GitHubEvent[] = await eventsRes.json();
 
@@ -108,7 +142,15 @@ export async function GET(
       productivityScore,
     });
   } catch (error) {
-    console.error('Error fetching GitHub data:', error);
+    // Structured logging (avoid exposing stack traces in production)
+    if (process.env.NODE_ENV === 'production') {
+      console.error('GitHub API error:', {
+        username,
+        message: error instanceof Error ? error.message : 'Unknown error',
+      });
+    } else {
+      console.error('Error fetching GitHub data:', error);
+    }
     return NextResponse.json(
       { error: 'Failed to fetch GitHub data' },
       { status: 500 }
